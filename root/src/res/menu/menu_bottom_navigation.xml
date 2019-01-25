@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/item_local_fragment"
+            android:icon="@drawable/ic_local_inactive"
+            android:title="@string/local_room"
+            app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/item_remote_fragment"
+            android:icon="@drawable/ic_api_inactive"
+            android:title="@string/remote_api"
+            app:showAsAction="ifRoom"
+    />
+</menu>

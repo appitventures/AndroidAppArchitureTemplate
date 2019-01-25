@@ -1,0 +1,391 @@
+<template
+	format="2"
+	revision="2"
+	name="Architecture Template"
+	minApi="7"
+	minBuildApi="14"
+	description="Generate Android app architecture with room">
+	<category value="Activity" />
+	<formfactor value="Mobile" />
+
+		<parameter
+			id="folderNameDemo"
+			name="Folder name dashboard"
+			type="string"
+			constraints="class|unique|nonempty"
+			default="dashboard"/>
+
+		<parameter
+			id="folderNameRetrofit"
+			name="Folder name retrofit"
+			type="string"
+			constraints="class|unique|nonempty"
+			default="retrofit"
+			help="Retrofit folder" />
+
+		<parameter
+			id="folderNameDi"
+			name="Folder name DI"
+			type="string"
+			constraints="class|unique|nonempty"
+			default="di"
+			help="Di folder" />
+
+	<parameter
+		id="folderNameHelper"
+		name="Folder name helper"
+		type="string"
+		constraints="class|unique|nonempty"
+		default="helper"
+		help="helper folder" />
+
+	<parameter
+			id="folderNameRepository"
+			name="Folder name repository"
+			type="string"
+			constraints="class|unique|nonempty"
+			default="repository"
+			help="Repository folder" />
+
+	<parameter
+			id="folderNameUi"
+			name="Folder name UI"
+			type="string"
+			constraints="class|unique|nonempty"
+			default="ui"
+			help="ui folder" />
+
+	<parameter
+			id="folderNameViewModel"
+			name="Folder name view model"
+			type="string"
+			constraints="class|unique|nonempty"
+			default="viewmodel"
+			help="viewmodel folder" />
+
+
+		<parameter
+			id="activityClass"
+			name="Activity class name"
+			type="string"
+			constraints="class|unique|nonempty"
+			suggest="${layoutToActivity(folderNameDemo)}"
+			default="MainActivity"
+			help="Activity name" />
+
+	<parameter
+		id="splashActivityClass"
+		name="SplashActivity class name "
+		type="string"
+		constraints="class|unique|nonempty"
+		suggest="SplashActivity"
+		default="SplashActivity"
+		help="SPlash Activity name" />
+
+	<parameter
+			id="baseActivityClass"
+			name="BaseActivity class name"
+			type="string"
+			constraints="class|unique|nonempty"
+			suggest="BaseActivity"
+			default="BaseActivity"
+			help="Base Activity name" />
+
+
+
+		<parameter
+			id="layoutName"
+			name="Layout name"
+			type="string"
+			constraints="layout|unique|nonempty"
+			suggest="${activityToLayout(activityClass)}"
+			default="activity_main"
+			help="Activity layout name" />
+
+	<parameter
+			id="layoutNameSplash"
+			name="Layout splash name"
+			type="string"
+			constraints="layout|unique|nonempty"
+			suggest="${activityToLayout(splashActivityClass)}"
+			default="activity_splash"
+			help="Activity splash layout name" />
+
+
+
+		<parameter
+			id="packageName"
+			name="Package name"
+			type="string"
+			constraints="package.${folderNameDemo}"
+			default="com.test.test"
+			help="Enter package name" />
+		<parameter
+			id="viewModelClass"
+			name="ViewModel name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="MainView"
+			suggest="${activityClass}ViewModel"
+			help="View interface name" />
+
+	<parameter
+			id="modelClass"
+			name="Model name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="MainView"
+			suggest="${activityClass}Model"
+			help="Model class" />
+
+	<parameter
+			id="adapterClass"
+			name="Adapter class name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="MainView"
+			suggest="${activityClass}Adapter"
+			help="Adapter class" />
+
+	<parameter
+			id="layoutViewHolder"
+			name="Layout adapter name"
+			type="string"
+			constraints="layout|unique|nonempty"
+			suggest="${activityToLayout(adapterClass)}"
+			default="adapter_layout"
+			help="Adapter layout name" />
+
+
+	<parameter
+		id="apiEndPointClass"
+		name="ApiEndPoint class"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="ApiEndPoint"
+		suggest="ApiEndPoint"
+		help="Api Endpoint name" />
+
+	<parameter
+		id="apiServiceClass"
+		name="ApiService class"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="ApiService"
+		suggest="ApiService"
+		help="ApiService name" />
+
+	<parameter
+			id="repositoryClass"
+			name="Repository class name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="Repository"
+			suggest="${folderNameRepository}Repository"
+			help="Repository name" />
+
+
+	<parameter
+		id="diAppComponent"
+		name="Di appcomponent name"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="diAppComponent"
+		suggest="${folderNameDi}AppComponent"
+		help="diAppComponent" />
+
+	<parameter
+		id="diAppModule"
+		name="Di appmodule name"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="DiAppModule"
+		suggest="${folderNameDi}AppModule"
+		help="diAppModule" />
+
+	<parameter
+		id="diActivityBindingModule"
+		name="Di activity binding module name"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="ActivityBindingModule"
+		suggest="ActivityBindingModule"
+		help="diActivityBindingModule" />
+
+	<parameter
+		id="diViewModelKey"
+		name="Di viewModelkey"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="diViewModelKey"
+		suggest="ViewModelKey"
+		help="diViewModelKey" />
+
+	<parameter
+		id="diViewModelModule"
+		name="Di viewmodelmodule"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="diViewModelModule"
+		suggest="ViewModelModule"
+		help="diViewModelModule" />
+
+	<parameter
+		id="diNetworkModule"
+		name="Di networkmodule"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="diNetworkModule"
+		suggest="NetworkModule"
+		help="diNetworkModule" />
+
+	<parameter
+		id="diViewModelFactory"
+		name="Di viewModelfactory"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="diViewModelFactory"
+		suggest="ViewModelFactory"
+		help="ViewModelFactory help" />
+
+
+	<parameter
+		id="applicationClass"
+		name="Application class"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="applicationClass"
+		suggest="TestApplication"
+		help="TestApplication help" />
+
+	<parameter
+		id="networkInterceptorClass"
+		name="NetworkInterceptor class"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="networkInterceptorClass"
+		suggest="NetworkInterceptor"
+		help="network interceptor help" />
+
+	<parameter
+		id="checkNetworkClass"
+		name="CheckNetwork class"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="checkNetworkClass"
+		suggest="CheckNetwork"
+		help="check network help" />
+
+	<parameter
+		id="noNetworkExceptionClass"
+		name="NoNetworkException class"
+		type="string"
+		constraints="class|nonempty|unique"
+		default="noNetworkExceptionClass"
+		suggest="NoNetworkException"
+		help="no network help" />
+
+
+
+	<parameter
+			id="folderRoom"
+			name="Folder name room"
+			type="string"
+			constraints="class|unique|nonempty"
+			default="room"
+			help="room folder" />
+
+	<parameter
+			id="fragmentModuleClass"
+			name="FragmentModule name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="FragmentModule"
+			suggest="FragmentModule"
+			help="FragmentModuleClass help" />
+
+	<parameter
+			id="databaseModule"
+			name="DatabaseModule name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="DatabaseModule"
+			suggest="DatabaseModule"
+			help="DatabaseModule help" />
+
+	<parameter
+			id="databaseName"
+			name="Database name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="PostDatabase"
+			suggest="PostDatabase"
+			help="DatabaseModule help" />
+
+
+	<parameter
+			id="entityClass"
+			name="Entity class name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="PostEntity"
+			suggest="PostEntity"
+			help="PostEntity help" />
+
+	<parameter
+			id="daoClass"
+			name="Dao class name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="PostDAO"
+			suggest="PostDAO"
+			help="PostDAO help" />
+
+	<parameter
+			id="fragmentOne"
+			name="FragmentOne name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="LocalFragment"
+			suggest="LocalFragment"
+			help="LocalFragment help" />
+
+	<parameter
+			id="fragmentTwo"
+			name="FragmentTwo name"
+			type="string"
+			constraints="class|nonempty|unique"
+			default="RemoteFragment"
+			suggest="RemoteFragment"
+			help="RemoteFragment help" />
+
+
+
+	<parameter
+			id="fragmentOneLayout"
+			name="FragmentOne layout name"
+			type="string"
+			constraints="layout|unique|nonempty"
+			suggest="${activityToLayout(fragmentOne)}"
+			default="fragment_local"
+			help="FragmentOne layout name" />
+
+	<parameter
+			id="fragmentTwoLayout"
+			name="FragmentTwo layout name"
+			type="string"
+			constraints="layout|unique|nonempty"
+			suggest="${activityToLayout(fragmentTwo)}"
+			default="fragment_remote"
+			help="FragmentTwo layout name" />
+
+
+	<thumbs>
+		<!-- default thumbnail is required -->
+		<thumb>architecture_template.png</thumb>
+	</thumbs>
+
+
+	<globals file="globals.xml.ftl" />
+<execute file="recipe.xml.ftl" />
+</template>
